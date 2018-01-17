@@ -13,6 +13,31 @@
       <%= render "shared/header" %>
     </div>
     <div id="content">
+      <div id="content">
+      <% if flash.notice %>
+      <p class="notice"><%= flash.notice %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
+CSS: フラッシュ機能(notice)を実装
+app/assets/stylesheets
+ファイルを作成(New File): flash.css
+ /* フラッシュ */
+p.notice {
+  border: 1px solid blue;
+  padding: 3px;
+  background-color: #ccf;
+}
+createアクション: 動作確認
+「会員名簿」→「会員の新規作成」をクリック
+入力欄に適当なデータを記入
+最後に「Create Member」ボタンを押す
+「会員を登録しました」と表示され、入力したものの一覧表が出たらOK
+このときのURLに注目
+パス: /members/1
+教科書p.228-229のshowアクションに対応する
+
       <%= yield %>
     </div>
     <div id="sidebar">
